@@ -6,19 +6,99 @@
       &:last-child {
         margin-right: 0;
       }
+      &.btn {
+        @extend .button;
+        &-primary {
+          @extend .button-primary;
+        }
+      }
     }
   }
 }
 
-.btn {
-  border: 1px solid $primary-color;
+.button {
+  @include bordered($primary-color);
   border-radius: 80px;
   padding: $btn-padding-height $btn-padding-width;
   color: $primary-color;
   cursor: pointer;
+  background: none;
 
   &-primary {
     background: $primary-color;
     color: $white !important;
   }
+
+  &-full-width {
+    width: 100%;
+  }
+}
+
+.section-header {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: $white;
+  padding: $container-padding-height 0;
+  margin-bottom: $container-padding-height;
+}
+
+.sign-in-dialog {
+  @include bordered($color-base);
+  border-radius: $border-radius-base;
+  margin: 0 auto;
+  width: 450px;
+  padding: $container-padding-height $container-padding-width;
+
+  &-header {
+    @extend .section-header;
+  }
+
+  &-form {
+    @extend .flex-column;
+    > label {
+      @extend .sign-in-input;
+    }
+    > a {
+      color: $primary-color;
+      margin-bottom: $container-padding-height;
+    }
+    &-actions {
+      text-align: center;
+      > button {
+        margin: $container-padding-height 0;
+      }
+    }
+  }
+
+  .btn {
+    @extend .button;
+    &-primary {
+      @extend .button-primary;
+    }
+    &-full-width {
+      @extend .button-full-width;
+    }
+  }
+}
+
+.sign-in-input {
+  @extend .flex-column;
+  margin-bottom: $container-padding-height;
+  > input {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    color: $color-base;
+    background-color: $body-bg;
+    line-height: $line-height-base;
+    background: none;
+    border: none;
+    border-bottom: 1px solid $color-base;
+    margin-top: $btn-padding-height;
+  }
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }
