@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $container-padding-height $container-padding-width;
+  border-color: $border-color;
+  border-bottom: 1px solid;
+
+  nav {
+    @extend .menu;
+  }
+}
